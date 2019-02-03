@@ -1,0 +1,22 @@
+input, div {
+    font-family: "Times New Roman", Times, serif;
+    text-align: left;
+}
+
+input {
+    font-size: 15px;
+}
+
+div {
+    /* font-size: 15px; */
+    display: inline-block;
+}
+
+select {
+    width: 60px;
+    text-align-last: center;
+}
+
+#costOfLivingChartContainer {
+    width: 500px;
+}

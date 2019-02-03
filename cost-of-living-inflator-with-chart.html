@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Future Cost of Living Estimator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<link rel="stylesheet" href="cost-of-living-inflator-with-chart/style.css">
+<body ng-controller="myCtrl">
+
+    Cost of Living: <input type="number" id="myCostOfLiving" ng-model="myCostOfLiving" ng-hide="showHideToggleArray.myCostOfLiving" ng-keypress="checkIfEnterKeyWasPressed($event, 'myCostOfLiving')" ng-blur="showHideToggleFunc('myCostOfLiving')"/><div class="myCostOfLiving" ng-show="showHideToggleArray.myCostOfLiving" ng-click="showHideToggleFunc('myCostOfLiving')">{{ myCostOfLiving | currency }}</div>
+    </br></br>
+    Annual Inflation:
+    <select id="myAnnualInflation" ng-model="annualInflationSelect" ng-options="x for x in annualInflationOptions" ng-init="annualInflationSelect = '2.0%'">
+    </select>
+    </br></br>
+    Years to Model: <input type="number" id="myEstimatedYears" ng-model="myEstimatedYears" ng-hide="showHideToggleArray.myEstimatedYears" ng-keypress="checkIfEnterKeyWasPressed($event, 'myEstimatedYears')" ng-blur="showHideToggleFunc('myEstimatedYears')"/><div class="myEstimatedYears" ng-show="showHideToggleArray.myEstimatedYears" ng-click="showHideToggleFunc('myEstimatedYears')">{{ myEstimatedYears + ' years' }}</div>
+    </br></br>
+    <button ng-click="createCostOfLivingChartData()">{{ buttonValueArray.myCostOfLivingButton }}</button>
+    </br></br>
+    <div id="costOfLivingChartContainer" ng-hide="showHiddenChartArray.myCostOfLiving">
+            <canvas id="myCostOfLivingChart" width="400" height="400"></canvas>
+    </div>
+
+
+    <!-- Putting down in body best practice so has rest of elements in DOM to manipulate. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="cost-of-living-inflator-with-chart/app.js"></script>
+
+</body>
+</html>
